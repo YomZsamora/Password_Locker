@@ -43,12 +43,12 @@ def check_existing_users(username):
 	return User.user_exist(username)
 
 
-def display_users():
+def display_all_users():
 	'''
 	Function that returns all the saved users
 	'''
 
-	return User.display_all_users
+	return User.display_all_users()
 
 
 def main():
@@ -60,6 +60,50 @@ def main():
 		print("Use these short codes : cu - create a new user, du - display users, fu -find a user, ex -exit the user list ")
 
 		short_code = input().lower()
+
+		if short_code == 'cu':
+			print("New Contact")
+			print("-"*10)
+
+			print("Username......")
+			username = input()
+
+			print("Password......")
+			password = input()
+
+			save_user(create_user(username,password))
+			print('\n')
+			print(f"New User {username} created")
+			print('\n')
+
+		elif short_code == 'du':
+
+			if display_all_users():
+				print("Here's the list of all saved users:")
+				print('\n')
+
+				for user in display_all_users():
+					print(f"{user.username}")
+
+				print('\n')
+
+			else:
+				print('\n')
+				print("You don't seem to have any users saved yet.")
+				print('\n')
+
+
+		elif short_code == 'fu':
+
+			print("Please enter the user you want to search:")
+			search_user = input()
+
+			if check_existing_users(search_user):
+				searched_user = find_user(search_user)
+				print(f"{searched_user.username}")
+				print('-' * 20)
+			else:
+				print("That user does not exist!")
 
 
 

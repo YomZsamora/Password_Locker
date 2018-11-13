@@ -94,7 +94,7 @@ class TestUser(unittest.TestCase):
 		Test to see if all the saved users are displated
 		'''
 
-		self.assertEqual(Contact.display_all_users(),Contact.user_list)
+		self.assertEqual(User.display_all_users(),User.user_list)
 
 
 

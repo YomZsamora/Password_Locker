@@ -47,3 +47,12 @@ class User:
 		for user in cls.user_list:
 			if user.username == username:
 				return user
+
+
+	@classmethod
+	def display_all_users(cls):
+		'''
+		Method returns all users list
+		'''
+
+		return cls.user_list

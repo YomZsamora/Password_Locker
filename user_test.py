@@ -89,5 +89,15 @@ class TestUser(unittest.TestCase):
 		self.assertTrue(user_exists)
 
 
+	def test_display_all_users(self):
+		'''
+		Test to see if all the saved users are displated
+		'''
+
+		self.assertEqual(Contact.display_all_users(),Contact.user_list)
+
+
+
+
 if __name__ == '__main__':
     unittest.main()
